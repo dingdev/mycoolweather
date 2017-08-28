@@ -13,7 +13,7 @@
         android:layout_marginLeft="15dp"
         android:text="空气质量"
         android:textColor="#fff"
-        android:textSize="20spsp"
+        android:textSize="20sp"
         />
     <LinearLayout
         android:layout_width="match_parent"
