@@ -22,6 +22,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.dk.coolweather.gson.Forecast;
 import com.example.dk.coolweather.gson.Weather;
+import com.example.dk.coolweather.service.AutoUpdateService;
 import com.example.dk.coolweather.util.HttpUtil;
 import com.example.dk.coolweather.util.Utility;
 
@@ -160,6 +161,7 @@ public class WeatherActivity extends AppCompatActivity {
         degreeText.setText(degree);
         weatherInfoText.setText(weatherInfo);
         forecastLayout.removeAllViews();
+
         for(Forecast forecast:weather.forecastList) {
             View view= LayoutInflater.from(this).inflate(R.layout.forecast_item,forecastLayout,false);
             TextView dateText=(TextView)view.findViewById(R.id.date_text);
@@ -183,6 +185,11 @@ public class WeatherActivity extends AppCompatActivity {
         carWashText.setText(carwash);
         sportText.setText(sport);
         weatherLayout.setVisibility(View.VISIBLE);
+        //start the service
+        if(weather!=null&&weather.status.equals("ok")){
+            Intent intent =new Intent(this, AutoUpdateService.class);
+            startService(intent);
+        }
     }
 
     public void loadBingPic(){
