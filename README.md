@@ -1,2 +1,2 @@
 # coolweather
-My firrst android project,just a practice^_^.
+My firrst android project ^_^.
